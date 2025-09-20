@@ -3,6 +3,9 @@ import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import Link from 'next/link';
 import { Github } from 'lucide-react';
 
+// Force dynamic rendering to ensure the data is fetched on every request.
+export const dynamic = 'force-dynamic';
+
 type Contributor = {
   login: string;
   id: number;
@@ -11,22 +14,16 @@ type Contributor = {
   contributions: number;
 };
 
-
-export const dynamic = 'force-dynamic';
-export const revalidate = 0;
-
 async function getContributors(): Promise<Contributor[]> {
   try {
+    // Fetch contributors from the GitHub API.
+    // 'no-cache' ensures we always get the latest data.
     const res = await fetch('https://api.github.com/repos/FenchsApps/helpmewithlinuxdistro/contributors', {
-
-      cache: 'no-store',
-      headers: {
-        'Cache-Control': 'no-cache',
-        'Pragma': 'no-cache'
-      }
+      cache: 'no-cache' 
     });
 
     if (!res.ok) {
+      // Log the error for debugging and return an empty array.
       console.error(`Failed to fetch contributors: ${res.status} ${res.statusText}`);
       return [];
     }
@@ -34,6 +31,7 @@ async function getContributors(): Promise<Contributor[]> {
     const data = await res.json();
     return data;
   } catch (error) {
+    // Catch any other errors (e.g., network issues).
     console.error('Error fetching contributors from GitHub API:', error);
     return [];
   }
