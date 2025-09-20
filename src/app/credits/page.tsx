@@ -11,17 +11,22 @@ type Contributor = {
   contributions: number;
 };
 
+
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 async function getContributors(): Promise<Contributor[]> {
   try {
-    // We are fetching the contributors from the GitHub API.
-    // The `next: { revalidate: 3600 }` option caches the result for one hour
-    // to avoid hitting the API rate limit on every page load.
     const res = await fetch('https://api.github.com/repos/FenchsApps/helpmewithlinuxdistro/contributors', {
-      next: { revalidate: 3600 } 
+
+      cache: 'no-store',
+      headers: {
+        'Cache-Control': 'no-cache',
+        'Pragma': 'no-cache'
+      }
     });
 
     if (!res.ok) {
-      // If the response is not OK, we log the error and return an empty array.
       console.error(`Failed to fetch contributors: ${res.status} ${res.statusText}`);
       return [];
     }
@@ -29,7 +34,6 @@ async function getContributors(): Promise<Contributor[]> {
     const data = await res.json();
     return data;
   } catch (error) {
-    // If there's any other error (e.g., network issue), we log it and return an empty array.
     console.error('Error fetching contributors from GitHub API:', error);
     return [];
   }
