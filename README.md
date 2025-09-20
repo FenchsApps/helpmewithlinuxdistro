@@ -55,6 +55,3 @@ export default nextConfig;
 ### Dependencies
 - Regularly audit your dependencies for known vulnerabilities using tools like `npm audit`.
 - Keep your dependencies up to date, especially major frameworks like Next.js and React.
-
-### Firebase Deployment
-When deploying to Firebase App Hosting, ensure that your repository is private if it contains any sensitive logic. Use Firebase's built-in features for managing environment variables securely.
