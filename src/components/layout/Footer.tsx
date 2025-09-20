@@ -10,7 +10,7 @@ const Footer = () => {
         <p className="text-sm text-muted-foreground">
           Released under the{" "}
           <a
-            href="/LICENSE"
+            href="https://github.com/FenchsApps/helpmewithlinuxdistro?tab=GPL-3.0-1-ov-file"
             target="_blank"
             rel="noopener noreferrer"
             className="underline"
