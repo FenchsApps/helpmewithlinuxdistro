@@ -55,3 +55,7 @@ export default nextConfig;
 ### Dependencies
 - Regularly audit your dependencies for known vulnerabilities using tools like `npm audit`.
 - Keep your dependencies up to date, especially major frameworks like Next.js and React.
+
+### License
+
+- GPL 3.0 Only
