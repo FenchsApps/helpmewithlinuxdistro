@@ -480,6 +480,32 @@ export const distros: Distro[] = [
         }
     }
   },
+  {
+    id: "nixos",
+    name: "NixOS",
+    description: "A powerful distribution built on a purely functional package manager. It allows for reproducible, declarative, and reliable systems. Ideal for developers and system administrators.",
+    website: "https://nixos.org/",
+    profile: {
+      experience: 85,
+      primary_use: 95,
+      latest_software: 95,
+      customization: 10,
+      hardware_age: 70,
+      ideology: 70,
+      enterprise: 30,
+      desktop_environment: 30,
+      package_manager: 100,
+      community_vs_corporate: 15,
+    },
+    translations: {
+        en: {
+            description: "A powerful distribution built on a purely functional package manager. It allows for reproducible, declarative, and reliable systems. Ideal for developers and system administrators."
+        },
+        ru: {
+            description: "Мощный дистрибутив, построенный на чисто функциональном менеджере пакетов. Он обеспечивает воспроизводимые, декларативные и надежные системы. Идеально подходит для разработчиков и системных администраторов."
+        }
+    }
+  },
 ];
 
 export function calculateScores(answers: { [questionId: string]: number }): Array<Distro & { score: number }> {
