@@ -3,6 +3,8 @@
 CONTAINER_NAME="helpmewithlinuxdistro-interactive"
 IMAGE_NAME="helpmewithlinuxdistro"
 
+podman build -t ${IMAGE_NAME} .
+
 echo "Help Me With Linux Distro"
 
 if podman ps -a --format "{{.Names}}" | grep -q "^${CONTAINER_NAME}$"; then

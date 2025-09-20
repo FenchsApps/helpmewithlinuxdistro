@@ -22,13 +22,13 @@ export default function QuizPage() {
   const t = (key: 'text' | 'description' | 'low_label' | 'high_label' | 'question_of' | 'back' | 'next' | 'see_results', question: Question | null = null) => {
     const translations: any = {
       en: {
-        question_of: `Question ${currentQuestionIndex + 1} of ${questions.length}`,
+        question_of: `Question ${currentQuestionIndex} of ${questions.length - 1}`,
         back: "Back",
         next: "Next",
         see_results: "See Results",
       },
       ru: {
-        question_of: `Вопрос ${currentQuestionIndex + 1} из ${questions.length}`,
+        question_of: `Вопрос ${currentQuestionIndex} из ${questions.length - 1}`,
         back: "Назад",
         next: "Далее",
         see_results: "Показать результаты",
@@ -44,7 +44,7 @@ export default function QuizPage() {
 
 
   const currentQuestion: Question = questions[currentQuestionIndex];
-  const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+  const progress = (currentQuestionIndex / (questions.length - 1)) * 100;
   const currentAnswer = answers[currentQuestion.id] ?? 50;
 
   const handleAnimation = (callback: () => void) => {
