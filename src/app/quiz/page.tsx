@@ -19,7 +19,7 @@ export default function QuizPage() {
   const [answers, setAnswers] = useState<{ [key: string]: number }>({});
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const t = (key: string, question: Question | null = null) => {
+  const t = (key: 'text' | 'description' | 'low_label' | 'high_label' | 'question_of' | 'back' | 'next' | 'see_results', question: Question | null = null) => {
     const translations: any = {
       en: {
         question_of: `Question ${currentQuestionIndex + 1} of ${questions.length}`,
@@ -34,9 +34,11 @@ export default function QuizPage() {
         see_results: "Показать результаты",
       }
     };
-    if (question) {
+
+    if (question && (key === 'text' || key === 'description' || key === 'low_label' || key === 'high_label')) {
       return question.translations[language][key] || question[key as keyof Question];
     }
+    
     return translations[language][key] || key;
   };
 
