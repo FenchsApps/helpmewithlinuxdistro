@@ -254,13 +254,13 @@ export const distros: Distro[] = [
     profile: {
       experience: 15,
       primary_use: 40,
-      latest_software: 60,
+      latest_software: 20,
       customization: 30,
       hardware_age: 70,
       ideology: 20,
       enterprise: 70,
       desktop_environment: 80,
-      package_manager: 30,
+      package_manager: 20,
       community_vs_corporate: 90,
     },
     translations: {
@@ -280,7 +280,7 @@ export const distros: Distro[] = [
     profile: {
       experience: 60,
       primary_use: 80,
-      latest_software: 10,
+      latest_software: 0,
       customization: 60,
       hardware_age: 40,
       ideology: 95,
@@ -306,12 +306,12 @@ export const distros: Distro[] = [
     profile: {
       experience: 10,
       primary_use: 20,
-      latest_software: 50,
+      latest_software: 20,
       customization: 20,
       hardware_age: 60,
       ideology: 10,
       enterprise: 10,
-      desktop_environment: 70,
+      desktop_environment: 80,
       package_manager: 20,
       community_vs_corporate: 40,
     },
@@ -358,13 +358,13 @@ export const distros: Distro[] = [
     profile: {
       experience: 90,
       primary_use: 90,
-      latest_software: 100,
+      latest_software: 95,
       customization: 95,
       hardware_age: 60,
       ideology: 50,
       enterprise: 10,
-      desktop_environment: 20,
-      package_manager: 90,
+      desktop_environment: 30,
+      package_manager: 20,
       community_vs_corporate: 5,
     },
     translations: {
@@ -382,14 +382,14 @@ export const distros: Distro[] = [
     description: "The ultimate distribution for customization and optimization. Gentoo builds everything from source code, allowing for a system tailored exactly to your hardware and needs. For experts only.",
     website: "https://www.gentoo.org/",
     profile: {
-      experience: 100,
+      experience: 90,
       primary_use: 100,
-      latest_software: 95,
+      latest_software: 70,
       customization: 100,
-      hardware_age: 50,
+      hardware_age: 90,
       ideology: 60,
       enterprise: 10,
-      desktop_environment: 10,
+      desktop_environment: 30,
       package_manager: 100,
       community_vs_corporate: 1,
     },
@@ -410,13 +410,13 @@ export const distros: Distro[] = [
     profile: {
       experience: 40,
       primary_use: 70,
-      latest_software: 85,
+      latest_software: 75,
       customization: 50,
       hardware_age: 90,
       ideology: 80,
       enterprise: 60,
       desktop_environment: 90,
-      package_manager: 70,
+      package_manager: 60,
       community_vs_corporate: 70,
     },
     translations: {
@@ -436,10 +436,10 @@ export const distros: Distro[] = [
     profile: {
       experience: 70,
       primary_use: 95,
-      latest_software: 20,
+      latest_software: 10,
       customization: 40,
       hardware_age: 80,
-      ideology: 40,
+      ideology: 30,
       enterprise: 100,
       desktop_environment: 60,
       package_manager: 60,
@@ -486,15 +486,15 @@ export const distros: Distro[] = [
     description: "A powerful distribution built on a purely functional package manager. It allows for reproducible, declarative, and reliable systems. Ideal for developers and system administrators.",
     website: "https://nixos.org/",
     profile: {
-      experience: 80,
-      primary_use: 90,
-      latest_software: 80,
-      customization: 20,
-      hardware_age: 40,
-      ideology: 70,
-      enterprise: 15,
-      desktop_environment: 20,
-      package_manager: 50,
+      experience: 85,
+      primary_use: 95,
+      latest_software: 100,
+      customization: 10,
+      hardware_age: 70,
+      ideology: 40,
+      enterprise: 30,
+      desktop_environment: 30,
+      package_manager: 100,
       community_vs_corporate: 15,
     },
     translations: {
@@ -503,6 +503,292 @@ export const distros: Distro[] = [
         },
         ru: {
             description: "Мощный дистрибутив, построенный на чисто функциональном менеджере пакетов. Он обеспечивает воспроизводимые, декларативные и надежные системы. Идеально подходит для разработчиков и системных администраторов."
+        }
+    }
+  },
+  {
+    id: "guixsd",
+    name: "GuixSD",
+    description: "A powerful distribution built on a purely functional package manager. It allows for reproducible, declarative, and reliable systems. Ideal for developers and system administrators.",
+    website: "https://guix.gnu.org/",
+    profile: {
+      experience: 95,
+      primary_use: 95,
+      latest_software: 40,
+      customization: 10,
+      hardware_age: 70,
+      ideology: 100,
+      enterprise: 0,
+      desktop_environment: 50,
+      package_manager: 100,
+      community_vs_corporate: 0,
+    },
+    translations: {
+        en: {
+            description: "A powerful distribution built on a purely functional package manager. It allows for reproducible, declarative, and reliable systems. Ideal for developers and system administrators."
+        },
+        ru: {
+            description: "Мощный дистрибутив, построенный на чисто функциональном менеджере пакетов. Он обеспечивает воспроизводимые, декларативные и надежные системы. Идеально подходит для разработчиков и системных администраторов."
+        }
+    }
+  },
+  {
+    id: "opensuse",
+    name: "openSUSE",
+    description: "A stable, feature-rich distribution known for its excellent administration tools like YaST. Offers both rolling release (Tumbleweed) and fixed release (Leap) options.",
+    website: "https://www.opensuse.org/",
+    profile: {
+      experience: 65,
+      primary_use: 70,
+      latest_software: 60,
+      customization: 60,
+      hardware_age: 80,
+      ideology: 70,
+      enterprise: 80,
+      desktop_environment: 80,
+      package_manager: 70,
+      community_vs_corporate: 60,
+    },
+    translations: {
+        en: {
+            description: "A stable, feature-rich distribution known for its excellent administration tools like YaST. Offers both rolling release (Tumbleweed) and fixed release (Leap) options."
+        },
+        ru: {
+            description: "Стабильный, многофункциональный дистрибутив, известный своими отличными инструментами администрирования, такими как YaST. Предлагает как rolling release (Tumbleweed), так и фиксированные релизы (Leap)."
+        }
+    }
+  },
+  {
+    id: "pop_os",
+    name: "Pop!_OS",
+    description: "A modern distribution optimized for developers and gamers. Built on Ubuntu but with a focus on productivity, gaming, and professional workflows.",
+    website: "https://pop.system76.com/",
+    profile: {
+      experience: 20,
+      primary_use: 50,
+      latest_software: 80,
+      customization: 40,
+      hardware_age: 90,
+      ideology: 20,
+      enterprise: 30,
+      desktop_environment: 90,
+      package_manager: 20,
+      community_vs_corporate: 30,
+    },
+    translations: {
+        en: {
+            description: "A modern distribution optimized for developers and gamers. Built on Ubuntu but with a focus on productivity, gaming, and professional workflows."
+        },
+        ru: {
+            description: "Современный дистрибутив, оптимизированный для разработчиков и геймеров. Основан на Ubuntu, но с фокусом на продуктивность, игры и профессиональные рабочие процессы."
+        }
+    }
+  },
+  {
+    id: "elementary",
+    name: "Elementary OS",
+    description: "A beautiful, user-friendly distribution focused on design and simplicity. Built on Ubuntu with a custom desktop environment that prioritizes aesthetics and ease of use.",
+    website: "https://elementary.io/",
+    profile: {
+      experience: 0,
+      primary_use: 0,
+      latest_software: 40,
+      customization: 10,
+      hardware_age: 70,
+      ideology: 30,
+      enterprise: 10,
+      desktop_environment: 95,
+      package_manager: 20,
+      community_vs_corporate: 20,
+    },
+    translations: {
+        en: {
+            description: "A beautiful, user-friendly distribution focused on design and simplicity. Built on Ubuntu with a custom desktop environment that looks like macOS."
+        },
+        ru: {
+            description: "Красивый, удобный дистрибутив, ориентированный на дизайн и простоту. Основан на Ubuntu с собственным DE  с закосом на macOS."
+        }
+    }
+  },
+  {
+    id: "zorin",
+    name: "Zorin OS",
+    description: "A Windows-like distribution designed to ease the transition from Windows to Linux. Offers familiar interface layouts and comes with Wine pre-installed.",
+    website: "https://zorin.com/os/",
+    profile: {
+      experience: 0,
+      primary_use: 0,
+      latest_software: 30,
+      customization: 30,
+      hardware_age: 70,
+      ideology: 20,
+      enterprise: 20,
+      desktop_environment: 85,
+      package_manager: 20,
+      community_vs_corporate: 30,
+    },
+    translations: {
+        en: {
+            description: "A Windows-like distribution designed to ease the transition from Windows to Linux. Offers familiar interface layouts and comes with Wine pre-installed."
+        },
+        ru: {
+            description: "Дистрибутив, похожий на Windows, предназначенный для облегчения перехода с Windows на Linux. Предлагает знакомый интерфейс и поставляется с предустановленным Wine."
+        }
+    }
+  },
+  {
+    id: "mx_linux",
+    name: "MX Linux",
+    description: "A lightweight, fast distribution based on Debian stable. Known for its excellent performance on older hardware and comprehensive set of pre-installed tools.",
+    website: "https://mxlinux.org/",
+    profile: {
+      experience: 10,
+      primary_use: 20,
+      latest_software: 20,
+      customization: 70,
+      hardware_age: 30,
+      ideology: 40,
+      enterprise: 20,
+      desktop_environment: 60,
+      package_manager: 20,
+      community_vs_corporate: 20,
+    },
+    translations: {
+        en: {
+            description: "A lightweight, fast distribution based on Debian stable. Known for its excellent performance on older hardware and comprehensive set of pre-installed tools."
+        },
+        ru: {
+            description: "Легкий, быстрый дистрибутив на основе стабильного Debian. Известен отличной производительностью на старом оборудовании и комплексным набором предустановленных инструментов."
+        }
+    }
+  },
+  {
+    id: "solus",
+    name: "Solus",
+    description: "An independent, modern distribution built from scratch. Features a curated software selection, rolling release model, and focuses on desktop computing.",
+    website: "https://getsol.us/",
+    profile: {
+      experience: 40,
+      primary_use: 60,
+      latest_software: 80,
+      customization: 50,
+      hardware_age: 80,
+      ideology: 50,
+      enterprise: 20,
+      desktop_environment: 90,
+      package_manager: 40,
+      community_vs_corporate: 10,
+    },
+    translations: {
+        en: {
+            description: "An independent, modern distribution built from scratch. Features a curated software selection, rolling release model, and focuses on desktop computing."
+        },
+        ru: {
+            description: "Независимый, современный дистрибутив, созданный с нуля. Имеет тщательно подобранный выбор программного обеспечения, модель rolling release и фокусируется на настольных вычислениях."
+        }
+    }
+  },
+  {
+    id: "void",
+    name: "Void Linux",
+    description: "A lightweight, rolling release distribution with its own package manager (xbps). Known for its simplicity, speed, and independence from systemd.",
+    website: "https://voidlinux.org/",
+    profile: {
+      experience: 50,
+      primary_use: 80,
+      latest_software: 75,
+      customization: 80,
+      hardware_age: 40,
+      ideology: 60,
+      enterprise: 5,
+      desktop_environment: 10,
+      package_manager: 50,
+      community_vs_corporate: 5,
+    },
+    translations: {
+        en: {
+            description: "A lightweight, rolling release distribution with its own package manager (xbps). Known for its simplicity, speed, and independence from systemd."
+        },
+        ru: {
+            description: "Легкий дистрибутив с rolling release и собственным менеджером пакетов (xbps). Известен своей простотой, скоростью и независимостью от systemd."
+        }
+    }
+  },
+  {
+    id: "alpine",
+    name: "Alpine Linux",
+    description: "A security-oriented, lightweight distribution based on musl libc and BusyBox. Popular for containers, embedded systems, and security-focused applications.",
+    website: "https://alpinelinux.org/",
+    profile: {
+      experience: 80,
+      primary_use: 100,
+      latest_software: 70,
+      customization: 90,
+      hardware_age: 0,
+      ideology: 90,
+      enterprise: 90,
+      desktop_environment: 0,
+      package_manager: 60,
+      community_vs_corporate: 30,
+    },
+    translations: {
+        en: {
+            description: "A security-oriented, lightweight distribution based on musl libc and BusyBox. Popular for containers and embedded systems."
+        },
+        ru: {
+            description: "Ориентированный на безопасность, легкий дистрибутив на основе musl libc и BusyBox. Популярен для контейнеров  и эмбеда."
+        }
+    }
+  },
+  {
+    id: "slackware",
+    name: "Slackware",
+    description: "One of the oldest Linux distributions, known for its simplicity and Unix-like approach. Minimal and stable, but requires more manual configuration.",
+    website: "https://www.slackware.com/",
+    profile: {
+      experience: 85,
+      primary_use: 80,
+      latest_software: 0,
+      customization: 80,
+      hardware_age: 0,
+      ideology: 70,
+      enterprise: 30,
+      desktop_environment: 30,
+      package_manager: 90,
+      community_vs_corporate: 5,
+    },
+    translations: {
+        en: {
+            description: "One of the oldest Linux distributions, known for its simplicity and Unix-like approach. Minimal, old and stable, but requires manual configuration."
+        },
+        ru: {
+            description: "Один из старейших дистрибутивов Linux, известный своей простотой и Unix-лайк подходом. Мелкий, древний и стабильный, но требует ручной настройки."
+        }
+    }
+  },
+  {
+    id: "centos_stream",
+    name: "CentOS Stream",
+    description: "A rolling release distribution that serves as the upstream for Red Hat Enterprise Linux. Ideal for developers and system administrators who want to stay ahead of RHEL.",
+    website: "https://www.centos.org/stream/",
+    profile: {
+      experience: 70,
+      primary_use: 90,
+      latest_software: 70,
+      customization: 50,
+      hardware_age: 80,
+      ideology: 40,
+      enterprise: 90,
+      desktop_environment: 60,
+      package_manager: 40,
+      community_vs_corporate: 80,
+    },
+    translations: {
+        en: {
+            description: "A rolling release distribution that serves as the upstream for Red Hat Enterprise Linux. Ideal for developers and system administrators who want to stay ahead of RHEL."
+        },
+        ru: {
+            description: "Дистрибутив с rolling release, который служит upstream для Red Hat Enterprise Linux. Идеально подходит для разработчиков и системных администраторов, которые хотят быть впереди RHEL."
         }
     }
   },
