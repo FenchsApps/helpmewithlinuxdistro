@@ -23,7 +23,7 @@ export default function ResultsComponent() {
 
   const results = calculateScores(answers);
   const topResult = results[0];
-  const chartData = results.slice(0, 5).map(r => ({ name: r.name, score: r.score })).reverse();
+  const chartData = results.slice(0, 5).map(r => ({ name: r.name, score: r.score }));
 
   const t = (key: string, distro: Distro | null = null, index: number | null = null) => {
     const translations: any = {
