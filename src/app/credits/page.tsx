@@ -13,15 +13,23 @@ type Contributor = {
 
 async function getContributors(): Promise<Contributor[]> {
   try {
+    // We are fetching the contributors from the GitHub API.
+    // The `next: { revalidate: 3600 }` option caches the result for one hour
+    // to avoid hitting the API rate limit on every page load.
     const res = await fetch('https://api.github.com/repos/FenchsApps/helpmewithlinuxdistro/contributors', {
-      next: { revalidate: 3600 } // Revalidate every hour
+      next: { revalidate: 3600 } 
     });
+
     if (!res.ok) {
-      console.error(`Failed to fetch contributors: ${res.statusText}`);
+      // If the response is not OK, we log the error and return an empty array.
+      console.error(`Failed to fetch contributors: ${res.status} ${res.statusText}`);
       return [];
     }
-    return res.json();
+    
+    const data = await res.json();
+    return data;
   } catch (error) {
+    // If there's any other error (e.g., network issue), we log it and return an empty array.
     console.error('Error fetching contributors from GitHub API:', error);
     return [];
   }
@@ -42,14 +50,14 @@ export default async function CreditsPage() {
       <Card>
         <CardHeader>
           <CardTitle>Contributors</CardTitle>
-          <CardDescription>A huge thank you to everyone who has contributed!</CardDescription>
+          <CardDescription>A huge thank you to everyone who has contributed to the project!</CardDescription>
         </CardHeader>
         <CardContent>
-          {contributors.length > 0 ? (
+          {contributors && contributors.length > 0 ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
               {contributors.map((contributor) => (
                 <Link key={contributor.id} href={contributor.html_url} target="_blank" rel="noopener noreferrer" className="group">
-                  <div className="flex flex-col items-center gap-2 text-center">
+                  <div className="flex flex-col items-center gap-2 text-center p-2 rounded-lg transition-colors hover:bg-accent">
                     <Avatar className="h-20 w-20 transition-transform group-hover:scale-105">
                       <AvatarImage src={contributor.avatar_url} alt={contributor.login} />
                       <AvatarFallback>{contributor.login.slice(0, 2).toUpperCase()}</AvatarFallback>
@@ -61,10 +69,15 @@ export default async function CreditsPage() {
               ))}
             </div>
           ) : (
-            <div className="text-center text-muted-foreground py-8">
+            <div className="text-center text-muted-foreground py-8 flex flex-col items-center justify-center">
               <Github className="mx-auto h-12 w-12 mb-4" />
-              <p>Could not load contributor information at this time.</p>
-              <p>Please check the <Link href="https://github.com/FenchsApps/helpmewithlinuxdistro" className="underline" target='_blank'>GitHub repository</Link> directly.</p>
+              <p className="font-semibold">Could not load contributor information.</p>
+              <p className="text-sm mt-1">
+                There might be an issue with the GitHub API. Please check the{' '}
+                <Link href="https://github.com/FenchsApps/helpmewithlinuxdistro/contributors" className="underline hover:text-primary" target='_blank'>
+                  GitHub repository
+                </Link> directly.
+              </p>
             </div>
           )}
         </CardContent>
