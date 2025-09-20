@@ -468,7 +468,7 @@ export const distros: Distro[] = [
       ideology: 50,
       enterprise: 0,
       desktop_environment: 50,
-      package_manager: 100,
+      package_manager: 0,
       community_vs_corporate: 0,
     },
     translations: {
