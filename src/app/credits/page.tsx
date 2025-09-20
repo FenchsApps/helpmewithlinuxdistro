@@ -1,10 +1,12 @@
+
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import Link from 'next/link';
 import { Github } from 'lucide-react';
-
-// Force dynamic rendering to ensure the data is fetched on every request.
-export const dynamic = 'force-dynamic';
+import { useEffect, useState } from 'react';
+import { Skeleton } from '@/components/ui/skeleton';
 
 type Contributor = {
   login: string;
@@ -14,31 +16,50 @@ type Contributor = {
   contributions: number;
 };
 
-async function getContributors(): Promise<Contributor[]> {
-  try {
-    // Fetch contributors from the GitHub API.
-    // 'no-cache' ensures we always get the latest data.
-    const res = await fetch('https://api.github.com/repos/FenchsApps/helpmewithlinuxdistro/contributors', {
-      cache: 'no-cache' 
-    });
-
-    if (!res.ok) {
-      // Log the error for debugging and return an empty array.
-      console.error(`Failed to fetch contributors: ${res.status} ${res.statusText}`);
-      return [];
-    }
-    
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    // Catch any other errors (e.g., network issues).
-    console.error('Error fetching contributors from GitHub API:', error);
-    return [];
-  }
+function ContributorsSkeleton() {
+    return (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            {[...Array(10)].map((_, i) => (
+                <div key={i} className="flex flex-col items-center gap-2">
+                    <Skeleton className="h-20 w-20 rounded-full" />
+                    <Skeleton className="h-4 w-16" />
+                    <Skeleton className="h-3 w-20" />
+                </div>
+            ))}
+        </div>
+    )
 }
 
-export default async function CreditsPage() {
-  const contributors = await getContributors();
+export default function CreditsPage() {
+  const [contributors, setContributors] = useState<Contributor[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function getContributors() {
+      try {
+        setIsLoading(true);
+        setError(null);
+        // Fetch contributors from the GitHub API.
+        const res = await fetch('https://api.github.com/repos/FenchsApps/helpmewithlinuxdistro/contributors');
+
+        if (!res.ok) {
+          throw new Error(`Failed to fetch contributors: ${res.status} ${res.statusText}`);
+        }
+        
+        const data = await res.json();
+        setContributors(data);
+      } catch (error: any) {
+        // Catch any other errors (e.g., network issues).
+        console.error('Error fetching contributors from GitHub API:', error);
+        setError(error.message || 'An unknown error occurred.');
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    getContributors();
+  }, []);
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
@@ -55,7 +76,21 @@ export default async function CreditsPage() {
           <CardDescription>A huge thank you to everyone who has contributed to the project!</CardDescription>
         </CardHeader>
         <CardContent>
-          {contributors && contributors.length > 0 ? (
+          {isLoading ? (
+            <ContributorsSkeleton />
+          ) : error || contributors.length === 0 ? (
+            <div className="text-center text-muted-foreground py-8 flex flex-col items-center justify-center">
+              <Github className="mx-auto h-12 w-12 mb-4" />
+              <p className="font-semibold">Could not load contributor information.</p>
+              <p className="text-sm mt-1">
+                There might be an issue with the GitHub API. Please check the{' '}
+                <Link href="https://github.com/FenchsApps/helpmewithlinuxdistro/contributors" className="underline hover:text-primary" target='_blank'>
+                  GitHub repository
+                </Link> directly.
+              </p>
+              {error && <p className="text-xs text-destructive mt-2">{error}</p>}
+            </div>
+          ) : (
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
               {contributors.map((contributor) => (
                 <Link key={contributor.id} href={contributor.html_url} target="_blank" rel="noopener noreferrer" className="group">
@@ -69,17 +104,6 @@ export default async function CreditsPage() {
                   </div>
                 </Link>
               ))}
-            </div>
-          ) : (
-            <div className="text-center text-muted-foreground py-8 flex flex-col items-center justify-center">
-              <Github className="mx-auto h-12 w-12 mb-4" />
-              <p className="font-semibold">Could not load contributor information.</p>
-              <p className="text-sm mt-1">
-                There might be an issue with the GitHub API. Please check the{' '}
-                <Link href="https://github.com/FenchsApps/helpmewithlinuxdistro/contributors" className="underline hover:text-primary" target='_blank'>
-                  GitHub repository
-                </Link> directly.
-              </p>
             </div>
           )}
         </CardContent>
