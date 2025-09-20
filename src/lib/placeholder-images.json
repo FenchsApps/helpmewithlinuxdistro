@@ -1,0 +1,10 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-linux",
+      "description": "Tux, the Linux penguin mascot",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg",
+      "imageHint": "tux linux penguin"
+    }
+  ]
+}
