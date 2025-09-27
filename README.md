@@ -58,4 +58,4 @@ export default nextConfig;
 
 ### License
 
-- GPL 3.0 Only
+- AGPL 3.0
