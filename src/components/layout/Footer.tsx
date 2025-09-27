@@ -15,7 +15,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="underline"
           >
-            GPL-3.0 License
+            AGPL-3.0 License
           </a>
           .
         </p>
